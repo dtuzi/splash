@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useWallet } from '@/context/WalletContext'
-import { formatAddress } from '@/lib/utils'
+import { formatAddress, getBasePath } from '@/lib/utils'
 import { Menu, X, Ticket, Calendar, User, LogOut, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [walletMenuOpen, setWalletMenuOpen] = useState(false)
   const [connectModalOpen, setConnectModalOpen] = useState(false)
+  const basePath = getBasePath()
 
   return (
     <>
@@ -22,7 +23,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
               <Image 
-                src="/splash-icon.svg" 
+                src={`${basePath}/splash-icon.svg`} 
                 alt="Splash" 
                 width={32} 
                 height={32}

@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Github, Twitter, MessageCircle } from 'lucide-react'
+import { getBasePath } from '@/lib/utils'
 
 export default function Footer() {
+  const basePath = getBasePath()
+  
   return (
     <footer className="border-t border-white/10 bg-bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -11,7 +14,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <Image 
-                src="/splash-icon.svg" 
+                src={`${basePath}/splash-icon.svg`} 
                 alt="Splash" 
                 width={32} 
                 height={32}
